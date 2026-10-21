@@ -322,32 +322,41 @@ export const projects: Project[] = [
   {
     id: "apply-pilot",
     title: "ApplyPilot",
-    subtitle: "Automated job application & pipeline runner",
+    subtitle: "AI Job Application Autofill Chrome Extension (Manifest V3)",
     blurb:
-      "An asynchronous scraping and application orchestrator that digests job requirements, tailors resume alignments through an LLM engine with local fallback, and deduplicates application targets.",
+      "A deterministic autofill Chrome extension (Manifest V3) with semantic field ontology and dynamic verification. Automatically identifies and accurately fills multi-page job applications using an intermediate representation (FormIR) and per-kind filling strategies without blind auto-submitting.",
     bullets: [
-      "Engineered with Playwright for reliable DOM automation, backed by human-like randomized delays to avoid throttling.",
-      "Deduplicates roles using content hashing (SHA-256) stored in an indexed SQLite database to eliminate duplicate attempts.",
-      "Hybrid LLM pipeline routing prompts through cloud APIs with automatic graceful fallback to a local Ollama model.",
+      "Built as a modular monorepo with Manifest V3 (background worker, content scripts, React side panel) paired with a Fastify API backend.",
+      "Engineered a deterministic 5-step pipeline: FormIR page scanning, semantic FieldMatcher ontology lookup, and per-kind AutofillExecutor.",
+      "Validated against a golden-question benchmark suite (126 entries across 35 intents) achieving >=95% accuracy, <5ms latency, and zero false positives.",
+      "End-to-end browser test automation with Playwright against a synthetic 7-page ATS simulator handling CAPTCHA, OTP, and dynamic DOM mutations.",
     ],
-    stack: ["Python", "Playwright", "SQLite", "LLM Tooling", "Ollama"],
+    stack: [
+      "TypeScript",
+      "Chrome Extension (MV3)",
+      "Fastify",
+      "React",
+      "Playwright",
+      "Vitest",
+      "Zod",
+    ],
     category: "AI & Tooling",
     links: [
       { label: "Source code", href: "https://github.com/Nikhil-sai-nambula" },
     ],
     technicalSpecs: {
-      pattern: "Asynchronous Pipeline with Circuit Breaker Fallback",
-      throughputOrMetric: "100% duplicate prevention via SHA-256 indexing",
-      storage: "SQLite with WAL (Write-Ahead Logging) mode",
-      resilience: "Automatic cloud-to-local LLM failover",
+      pattern: "Deterministic FormIR & Semantic Ontology",
+      throughputOrMetric: ">=95% Accuracy, <5ms Field Matching Latency",
+      storage: "Chrome Storage API + Fastify Profile Store",
+      resilience: "MutationObserver Re-scan & Safety Halts on Challenges",
     },
     deepDive: {
       challenge:
-        "External job application portals frequently change layouts and implement strict anti-bot rate limits.",
+        "Modern applicant tracking systems (ATS) use highly variable, deeply nested custom DOM structures (custom comboboxes, date-pickers, async late-rendered inputs). Blind autofill frequently enters incorrect data or crashes when encountering verification challenges.",
       solution:
-        "Structured playwright execution with exponential backoff retries, persistent browser cookies, and local model failover so jobs continue even during network disruption.",
+        "Abstracted web forms into a structured FormIR intermediate representation mapped by @apply-pilot/field-ontology with confidence scoring. Implemented DOM MutationObserver to catch late-rendered fields and enforced strict guardrails that halt continuous filling at CAPTCHA, OTP, or legal checkpoints without ever triggering auto-submit.",
       keyTakeaway:
-        "Designing idempotency at the database layer (SHA-256 content hashes) prevented accidental duplicate submissions regardless of process crashes.",
+        "Decoupling semantic form ontology from browser execution strategies achieved high accuracy and zero false positives across complex multi-step application portals.",
     },
   },
 ];
