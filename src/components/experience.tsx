@@ -1,17 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  CaretDown,
-  CaretUp,
-  CheckCircle,
-  Database,
-  Lightning,
-  MapPin,
-  ShieldCheck,
-  TrendUp,
-  Cpu,
-} from "@phosphor-icons/react";
+import { CheckCircle, MapPin, Cpu } from "@phosphor-icons/react";
 import { experience } from "@/data/portfolio";
 import { Reveal } from "./reveal";
 import { Section, SectionHeading } from "./section";

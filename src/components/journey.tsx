@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   ArrowDown,
   ArrowSquareOut,
-  CheckCircle,
   GraduationCap,
   SealCheck,
   Trophy,

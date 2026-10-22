@@ -7,7 +7,6 @@ import {
   Cpu,
   Download,
   Lightning,
-  MagnifyingGlass,
   Pulse,
   ShieldCheck,
 } from "@phosphor-icons/react";

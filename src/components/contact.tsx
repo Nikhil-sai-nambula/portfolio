@@ -2,18 +2,16 @@
 
 import { useState } from "react";
 import {
-  ArrowSquareOut,
   ArrowUpRight,
   Check,
   CheckCircle,
   Copy,
-  EnvelopeSimple,
   GithubLogo,
   LinkedinLogo,
   PaperPlaneTilt,
   Phone,
 } from "@phosphor-icons/react";
-import { cta, profile } from "@/data/portfolio";
+import { profile } from "@/data/portfolio";
 import { Reveal } from "./reveal";
 import { Section, SectionHeading } from "./section";
 
@@ -113,7 +111,7 @@ export function Contact() {
                   Send a Direct Message
                 </h3>
                 <p className="mt-1 text-xs text-muted">
-                  Connects directly to Nikhil's inbox.
+                  Connects directly to Nikhil&apos;s inbox.
                 </p>
               </div>
               {status === "sent" ? (

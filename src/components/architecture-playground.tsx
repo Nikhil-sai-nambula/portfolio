@@ -1,18 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ArrowsClockwise,
   Check,
   CheckCircle,
   Copy,
-  Cpu,
-  Database,
   GitBranch,
-  Lightning,
   Play,
   Pulse,
-  ShieldCheck,
   Terminal,
   WarningCircle,
 } from "@phosphor-icons/react";

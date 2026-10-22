@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 
 type CircuitWireVisualizerProps = {
   state: "CLOSED" | "OPEN" | "HALF-OPEN";

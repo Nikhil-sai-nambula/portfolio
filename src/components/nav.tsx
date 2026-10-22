@@ -93,6 +93,7 @@ export function Nav() {
                 <a
                   key={link.id}
                   href={`#${link.id}`}
+                  onClick={() => setActive(link.id)}
                   aria-current={active === link.id ? "true" : undefined}
                   className={`relative rounded-lg px-2 xl:px-2.5 py-1.5 text-xs xl:text-sm font-medium transition-colors whitespace-nowrap ${
                     active === link.id
@@ -221,7 +222,10 @@ export function Nav() {
               <a
                 key={link.id}
                 href={`#${link.id}`}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setActive(link.id);
+                  setOpen(false);
+                }}
                 className={`flex min-h-[44px] items-center justify-between rounded-xl px-3 py-3 text-sm font-medium transition-colors ${
                   active === link.id
                     ? "bg-accent/15 dark:bg-accent-soft text-accent font-bold"

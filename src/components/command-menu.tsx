@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Briefcase,
-  Command,
   Cpu,
   Download,
   EnvelopeSimple,
@@ -151,7 +150,7 @@ export function CommandMenu() {
       category: "Actions",
       Icon: Phone,
       onSelect: () => {
-        window.location.href = `tel:${profile.phone.replace(/\s/g, "")}`;
+        window.location.assign(`tel:${profile.phone.replace(/\s/g, "")}`);
         setOpen(false);
       },
     },
@@ -192,9 +191,6 @@ export function CommandMenu() {
     action.category.toLowerCase().includes(query.toLowerCase())
   );
 
-  useEffect(() => {
-    setSelectedIndex(0);
-  }, [query]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowDown") {
@@ -258,7 +254,10 @@ export function CommandMenu() {
                 type="text"
                 placeholder="Type a command or jump to section..."
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setSelectedIndex(0);
+                }}
                 onKeyDown={handleKeyDown}
                 className="w-full bg-transparent text-sm text-fg outline-none placeholder:text-subtle"
               />

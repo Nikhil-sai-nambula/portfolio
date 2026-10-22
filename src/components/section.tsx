@@ -35,7 +35,7 @@ export function Section({ id, children, className = "" }: SectionProps) {
   return (
     <section
       id={id}
-      className={`relative scroll-mt-20 border-t border-line py-16 sm:py-20 lg:py-24 ${className}`}
+      className={`relative scroll-mt-2 sm:scroll-mt-3 lg:scroll-mt-4 border-t border-line py-16 sm:py-20 lg:py-24 ${className}`}
     >
       <div className="container-page">{children}</div>
     </section>

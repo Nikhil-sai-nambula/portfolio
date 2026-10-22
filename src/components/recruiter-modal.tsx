@@ -4,13 +4,10 @@ import { useEffect, useState } from "react";
 import {
   Briefcase,
   Check,
-  CheckCircle,
   Copy,
   Download,
   EnvelopeSimple,
   SealCheck,
-  Sparkle,
-  TrendUp,
   X,
 } from "@phosphor-icons/react";
 import { profile } from "@/data/portfolio";
