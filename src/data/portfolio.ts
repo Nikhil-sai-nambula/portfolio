@@ -271,7 +271,6 @@ export const projects: Project[] = [
     category: "Distributed Systems",
     links: [
       { label: "Source code", href: "https://github.com/Nikhil-sai-nambula/ShopVerse" },
-      { label: "Live demo", href: "https://shop-verse-six.vercel.app" },
     ],
     technicalSpecs: {
       pattern: "Event-Driven & Finite State Machine",
@@ -302,12 +301,7 @@ export const projects: Project[] = [
     ],
     stack: ["Python", "TensorFlow", "Keras", "InceptionV3", "Xception", "LSTM"],
     category: "Computer Vision",
-    links: [
-      {
-        label: "Source code",
-        href: "https://github.com/Nikhil-sai-nambula/recipe-generation-from-food-photos",
-      },
-    ],
+    links: [],
     technicalSpecs: {
       pattern: "Encoder-Decoder CNN-LSTM Architecture",
       throughputOrMetric: "87% Top-5 ingredient prediction accuracy",
