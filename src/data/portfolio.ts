@@ -339,12 +339,9 @@ export const projects: Project[] = [
       "Zod",
     ],
     category: "AI & Tooling",
-    links: [
-      {
-        label: "Source code",
-        href: "https://github.com/Nikhil-sai-nambula/apply-pilot",
-      },
-    ],
+    // Source link removed: the URL returns 404 (repo inaccessible).
+    // Re-add { label: "Source code", href: "..." } once the repo is reachable.
+    links: [],
     technicalSpecs: {
       pattern: "Deterministic FormIR & Semantic Ontology",
       throughputOrMetric: ">=95% Accuracy, <5ms Field Matching Latency",

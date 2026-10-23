@@ -41,8 +41,13 @@ export function Counter({
   }, [springVal, prefix, suffix]);
 
   return (
-    <span ref={ref} className={`tabular-nums ${className}`}>
-      {prefix}0{suffix}
+    <span
+      aria-label={`${prefix}${value.toLocaleString()}${suffix}`}
+      className={`tabular-nums ${className}`}
+    >
+      <span ref={ref} aria-hidden="true">
+        {prefix}0{suffix}
+      </span>
     </span>
   );
 }

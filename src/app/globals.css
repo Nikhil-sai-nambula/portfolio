@@ -159,12 +159,25 @@ html {
   }
 }
 
+/* Prevent horizontal page scrolling from oversized decorative/animated
+   content (e.g. the skills marquee) on mobile. `clip` avoids creating a
+   scroll container; `hidden` is the fallback for older browsers. */
+html,
+body {
+  overflow-x: hidden;
+}
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
 body {
   background-color: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv01";
-  overflow-x: hidden;
   transition:
     background-color 0.4s ease,
     color 0.4s ease;

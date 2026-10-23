@@ -6,7 +6,7 @@ export function Marquee() {
   const items = [...marquee, ...marquee];
 
   return (
-    <div className="relative border-y border-line bg-bg-elev/40 py-4">
+    <div className="relative overflow-hidden border-y border-line bg-bg-elev/40 py-4">
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg to-transparent"
         aria-hidden

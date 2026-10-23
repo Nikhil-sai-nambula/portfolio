@@ -111,7 +111,8 @@ export function Contact() {
                   Send a Direct Message
                 </h3>
                 <p className="mt-1 text-xs text-muted">
-                  Connects directly to Nikhil&apos;s inbox.
+                  Opens your email app with the message pre-filled and
+                  addressed to Nikhil.
                 </p>
               </div>
               {status === "sent" ? (
@@ -156,6 +157,8 @@ export function Contact() {
                       </label>
                       <input
                         id="sender-name"
+                        name="name"
+                        autoComplete="name"
                         type="text"
                         required
                         placeholder="e.g. Alex Chen"
@@ -174,6 +177,8 @@ export function Contact() {
                       </label>
                       <input
                         id="sender-email"
+                        name="email"
+                        autoComplete="email"
                         type="email"
                         required
                         placeholder="alex@company.com"
@@ -193,6 +198,7 @@ export function Contact() {
                     </label>
                     <select
                       id="role-type"
+                      name="inquiry-type"
                       value={roleType}
                       onChange={(e) => setRoleType(e.target.value)}
                       className="w-full rounded-xl border border-line bg-bg-elev px-3.5 py-2.5 text-sm text-fg outline-none transition-colors focus:border-accent"
@@ -213,6 +219,7 @@ export function Contact() {
                     </label>
                     <textarea
                       id="message-content"
+                      name="message"
                       required
                       rows={4}
                       placeholder="Share details about the role, technical requirements, or team..."
@@ -228,11 +235,11 @@ export function Contact() {
                     className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-fg px-5 py-3 text-sm font-semibold text-bg transition-opacity hover:opacity-90 disabled:opacity-50"
                   >
                     {status === "sending" ? (
-                      <span>Sending message...</span>
+                      <span>Preparing message...</span>
                     ) : (
                       <>
                         <PaperPlaneTilt size={16} weight="bold" />
-                        <span>Send Message</span>
+                        <span>Compose Email</span>
                       </>
                     )}
                   </button>
@@ -254,23 +261,26 @@ export function Contact() {
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2.5">
-                <button
-                  type="button"
-                  onClick={copyEmail}
-                  className="inline-flex items-center gap-2 rounded-xl border border-line-strong bg-bg px-4 py-2.5 text-xs font-semibold text-fg transition-colors hover:border-accent"
-                >
-                  {copied ? (
-                    <>
+                <div className="inline-flex items-stretch overflow-hidden rounded-xl border border-line-strong bg-bg">
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold text-fg transition-colors hover:text-accent"
+                  >
+                    <span>{profile.email}</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={copyEmail}
+                    aria-label={copied ? "Email address copied" : "Copy email address"}
+                    className="grid place-items-center border-l border-line px-3 text-muted transition-colors hover:text-fg"
+                  >
+                    {copied ? (
                       <Check size={15} className="text-emerald-400" />
-                      <span>Copied email address!</span>
-                    </>
-                  ) : (
-                    <>
+                    ) : (
                       <Copy size={15} />
-                      <span>{profile.email}</span>
-                    </>
-                  )}
-                </button>
+                    )}
+                  </button>
+                </div>
 
                 <a
                   href={`tel:${profile.phone.replace(/\s/g, "")}`}
