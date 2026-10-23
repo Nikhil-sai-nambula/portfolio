@@ -19,7 +19,7 @@ const description =
   "Nikhil Sai Nambula is a Java backend developer working on distributed systems, Spring Boot microservices, high availability and low-level design. AWS Certified Developer.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nikhil-sai-nambula.dev"),
+  metadataBase: new URL("https://nikhil-sai-portfolio.vercel.app"),
   title: {
     default: `${profile.name}, Java Backend Developer`,
     template: `%s · ${profile.shortName}`,
