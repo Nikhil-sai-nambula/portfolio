@@ -254,7 +254,7 @@ public OrderResponse processOrder(OrderRequest request) {
             {/* Interactive Control Panel */}
             <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
               {/* Controls */}
-              <div className="space-y-6">
+              <div className="min-w-0 space-y-6">
                 <div>
                   <div className="flex items-center justify-between text-sm">
                     <label
@@ -403,7 +403,7 @@ public OrderResponse processOrder(OrderRequest request) {
               </div>
 
               {/* Real-time Telemetry & Live Request Stream */}
-              <div className="space-y-4">
+              <div className="min-w-0 space-y-4">
                 <CircuitWireVisualizer state={circuitState} />
 
                 <div className="rounded-xl border border-line bg-bg-elev p-5 space-y-4">
